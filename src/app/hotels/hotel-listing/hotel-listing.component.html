@@ -35,12 +35,12 @@
             </div>
           </div>
           <div class="col-8">
-            <div class="card-deck">
+            <div *ngIf="hotels$ | async as hotels" class="card-deck">
              <ng-container *ngFor="let hotel of hotels; let i = index">
               <div class="card mb-3">
                 <div class="card-body">
                   <p class="card-text"><b>Name:</b> {{hotel.name}}</p>
-                  <p class="card-text"><b>Price:</b> {{hotel.price}}</p>
+                  <p class="card-text"><b>Price:</b> {{hotel.price | currency:'AED'}}</p>
                   <p class="card-text"><b>City:</b> {{hotel.city}}</p>
                 </div>
               </div>
