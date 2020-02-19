@@ -27,7 +27,14 @@
                   <fa-icon [icon]="faSearch"></fa-icon>
                 </span>
               </div>
-              <input type="text" class="form-control" placeholder="Hotel name" aria-label="HotelName" aria-describedby="search-addon">
+              <input
+                #searchInput
+                type="text" 
+                class="form-control" 
+                placeholder="Hotel name" 
+                aria-label="HotelName" 
+                aria-describedby="search-addon"
+              >
             </div>
             <div class="form-group">
               <label for="priceFilterRange">Price Filter</label>
