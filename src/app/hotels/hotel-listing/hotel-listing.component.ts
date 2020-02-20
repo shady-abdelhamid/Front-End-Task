@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { fromEvent, Observable } from 'rxjs';
+import { combineLatest, fromEvent, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap } from 'rxjs/operators';
 import { Hotel } from '../hotel.model';
 import { HotelsService } from '../hotels.service';
@@ -16,6 +16,9 @@ export class HotelListingComponent implements OnInit, AfterViewInit {
   hotels$: Observable<Hotel[]>;
 
   @ViewChild('searchInput') searchInput: ElementRef;
+  @ViewChild('rangeInput') rangeInput: ElementRef;
+  
+  prvFilters: any[] = ['', -1];
 
   constructor(private hotelsService: HotelsService) { }
 
@@ -26,27 +29,39 @@ export class HotelListingComponent implements OnInit, AfterViewInit {
      * if not display all hotels
      */
   ngAfterViewInit() {
-    this.hotels$ = fromEvent(this.searchInput.nativeElement, 'keyup')
+    const search$ = fromEvent(this.searchInput.nativeElement, 'keyup')
       .pipe(
         map(event => event['target'].value),
-        startWith(''),
         debounceTime(400),
-        distinctUntilChanged(),
-        switchMap(search => this.loadHotels(search))
+        startWith(''),
       );
 
+    const change$ = fromEvent(this.rangeInput.nativeElement, 'change')
+      .pipe(
+        map(event => event['target'].value),
+        startWith(999)
+      );
+
+    this.hotels$ = combineLatest(search$, change$)
+      .pipe(
+        distinctUntilChanged(),
+        switchMap(([search, change]) => this.loadHotels(search, change)));
 
   }
 
-  /** loads hotels according the search term
+  /**
+   * loads hotels according the search term
    * @param hotelSearchTerm a string with defaults value of empty
+   * @param priceSearchTerm a number with defaults value of -1
    */
-  loadHotels(hotelSearchTerm = ''): Observable<Hotel[]> {
-    return this.hotelsService.getHotels().pipe(
-      map(hotels => hotels
-        .filter(h => h.name.trim().toLowerCase()
-          .search(hotelSearchTerm.toLowerCase()) >= 0
-        )));
+  loadHotels(hotelSearchTerm: string = '',priceSearchTerm: number = 80): Observable<Hotel[]> {
+    const hotels$ = this.hotelsService.getHotels();
+      return hotels$.pipe(
+        map(hotels => hotels
+          .filter(h => 
+              h.name.trim().toLowerCase().search(hotelSearchTerm.toLowerCase()) >= 0 
+              && 
+              h.price <= priceSearchTerm)))
   }
 
 }

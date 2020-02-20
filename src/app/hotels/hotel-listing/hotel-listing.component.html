@@ -38,7 +38,14 @@
             </div>
             <div class="form-group">
               <label for="priceFilterRange">Price Filter</label>
-              <input type="range" class="form-control-range" id="priceFilterRange">
+              <input
+                #rangeInput 
+                id="priceFilterRange"
+                type="range" 
+                class="form-control-range"
+                min="80"
+                max="180"
+              > 
             </div>
           </div>
           <div class="col-8">
