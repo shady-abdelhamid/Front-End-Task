@@ -21,3 +21,12 @@ export interface Availability {
     /** to date */
     to: string;
 }
+
+
+/** Sort interface */
+export interface Sort {
+    /** active sort criteria */
+    active: string;
+    /** asc or desc */
+    direction: string;
+}
