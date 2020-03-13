@@ -20,5 +20,5 @@ before_install:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 script:
-  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
+  # - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
