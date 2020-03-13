@@ -6,7 +6,11 @@ node_js:
   - "10"
 
 addons:
-  chrome: stable
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
 cache:
   directories:
@@ -14,7 +18,7 @@ cache:
 
 install:
   - npm install
-  
+
 script:
   - npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-  - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+  # - npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js

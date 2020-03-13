@@ -19,19 +19,18 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/Front-End-Task'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true,
-      thresholds: {
-        statements: 10,
-        lines: 10,
-        branches: 10,
-        functions: 10
-      }
+      // thresholds: {
+      //   statements: 10,
+      //   lines: 10,
+      //   branches: 10,
+      //   functions: 10
+      // }
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
     browsers: ['Chrome'],
     customLaunchers: {
       ChromeHeadlessCI: {
