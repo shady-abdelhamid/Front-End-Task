@@ -22,17 +22,17 @@ export class HotelListingComponent implements OnInit, AfterViewInit {
 
   sort: Sort = {
     active: 'name',
-    direction: 'asc'
-  }
+    direction: 'asc',
+  };
 
   constructor(private hotelsService: HotelsService) { }
 
   ngOnInit(): void { }
 
   /**
-     * display hotels according to search term. 
-     * if not display all hotels
-     */
+   * display hotels according to search term.
+   * if not display all hotels
+   */
   ngAfterViewInit() {
     const search$ = fromEvent(this.searchInput.nativeElement, 'keyup')
       .pipe(
