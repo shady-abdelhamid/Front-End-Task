@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
 
 import { HotelListingComponent } from './hotel-listing.component';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 describe('HotelListingComponent', () => {
   let component: HotelListingComponent;
@@ -8,9 +10,12 @@ describe('HotelListingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HotelListingComponent ]
+      imports: [HttpClientTestingModule,
+        NgbAccordionModule
+      ],
+      declarations: [HotelListingComponent],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
