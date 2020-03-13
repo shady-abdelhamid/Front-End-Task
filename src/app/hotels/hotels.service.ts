@@ -1,3 +1,4 @@
+/* tslint:disable */
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -14,9 +15,9 @@ export class HotelsService {
 
   getHotels(): Observable<Hotel[]> {
     return this.http.get<Hotel[]>(`${this.baseUrl}/tl0bp`).pipe(
-        tap(_ => console.log('fetched hotels')),
-        map(res => res['hotels']),
-        catchError(err => throwError(err))
-      );
+      tap(_ => console.log('fetched hotels')),
+      map(res => res['hotels']),
+      catchError(err => throwError(err))
+    );
   }
 }

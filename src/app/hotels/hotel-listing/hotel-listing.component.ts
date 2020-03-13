@@ -1,3 +1,4 @@
+/* tslint:disable */
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { combineLatest, fromEvent, Observable } from 'rxjs';

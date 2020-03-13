@@ -9,11 +9,11 @@ export interface Hotel {
     /** City */
     city: string;
     /** availability */
-    availability: Availability[]
+    availability: Availability[];
 }
 
 /**
- * Availability date range 
+ * Availability date range
  */
 export interface Availability {
     /** from date */
