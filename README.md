@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/8cfcd548d6df09d04ca8/maintainability)](https://codeclimate.com/github/shady-abdelhamid/Front-End-Task/maintainability)
+
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8cfcd548d6df09d04ca8/test_coverage)](https://codeclimate.com/github/shady-abdelhamid/Front-End-Task/test_coverage)
 
 # FrontEndTask
