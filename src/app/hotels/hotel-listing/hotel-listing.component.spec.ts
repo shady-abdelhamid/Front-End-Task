@@ -29,4 +29,13 @@ describe('HotelListingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should modify sort object when sort button clicked', () => {
+
+    expect(component.sort.direction).toBe('asc', 'default value');
+    component.sortBy('name');
+    expect(component.sort.direction).toBe('desc', 'changed after click');
+    component.sortBy('price');
+    expect(component.sort.direction).toBe('asc', 'changed to \'asc\'');
+  });
 });
