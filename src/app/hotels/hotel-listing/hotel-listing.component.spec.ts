@@ -3,6 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HotelListingComponent } from './hotel-listing.component';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 describe('HotelListingComponent', () => {
   let component: HotelListingComponent;
@@ -11,7 +12,8 @@ describe('HotelListingComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule,
-        NgbAccordionModule
+        NgbAccordionModule,
+        FontAwesomeModule,
       ],
       declarations: [HotelListingComponent],
     })
