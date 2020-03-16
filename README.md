@@ -1,3 +1,5 @@
+[![Test Coverage](https://api.codeclimate.com/v1/badges/8cfcd548d6df09d04ca8/test_coverage)](https://codeclimate.com/github/shady-abdelhamid/Front-End-Task/test_coverage)
+
 # FrontEndTask
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
